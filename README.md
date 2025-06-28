@@ -25,13 +25,13 @@ If you are running a version of MacOS, unzip the .ZIP inside 'MAC_OS', then run 
 can run the game from:
 	/MAC_OS/MichaelScandiffio-MagnetThesisGame.APP
 
-	On MacOS, if the application fails to run, you may need to allow it through
-	GateKeeper.
+On MacOS, if the application fails to run, you may need to allow it through
+GateKeeper.
 
-	1. Go to System Settings > Privacy & Security > Security
-	2. Enable 'Allow anyway' next to a message indicating that MichaelScandiffio-
+1. Go to System Settings > Privacy & Security > Security
+2. Enable 'Allow anyway' next to a message indicating that MichaelScandiffio-
 		MagnetThesisGame.APP was not allowed to run
-	3. Launch MichaelScandiffio-MagnetThesisGame.APP again
+3. Launch MichaelScandiffio-MagnetThesisGame.APP again
 
 
 
@@ -40,25 +40,25 @@ controller connected to the computer.  The controls are listed below:
 
 KEYBOARD-MOUSE:
 - MOVEMENT : WASD (W for forward, A for left, D for right, S for backwards)
--     JUMP : Space Bar
--   SPRINT : Left Shift
--  RESTART : Left Shift + Left Alt
--     QUIT : Escape
+- JUMP : Space Bar
+- SPRINT : Left Shift
+- RESTART : Left Shift + Left Alt
+- QUIT : Escape
 
 - FIRE NORTH POLARITY : Left Click
 - FIRE SOUTH POLARITY : Right Click
--         LOOK AROUND : Cursor/Mouse movement
+- LOOK AROUND : Cursor/Mouse movement
 
 CONTROLLER:
 - MOVEMENT : Left Analog Stick
--     JUMP : Nintendo A or B  //  Xbox B or A  //  PlayStation Circle or Cross
-    SPRINT : Nintendo Y or X  //  Xbox X or Y  //  PlayStation Square or Triangle
-   RESTART : Nintendo Plus    //  Xbox Menu    //  PlayStation Start
-      QUIT : Nintendo Minus   //  Xbox Back    //  PlayStation Select
+- JUMP    : Nintendo A or B  //  Xbox B or A  //  PlayStation Circle or Cross
+  SPRINT  : Nintendo Y or X  //  Xbox X or Y  //  PlayStation Square or Triangle
+  RESTART : Nintendo Plus    //  Xbox Menu    //  PlayStation Start
+  QUIT    : Nintendo Minus   //  Xbox Back    //  PlayStation Select
 
 - FIRE NORTH POLARITY : Nintendo ZL  //  Xbox LT  //  PlayStation L2
 - FIRE SOUTH POLARITY : Nintendo ZR  //  Xbox RT  //  PlayStation R2
--         LOOK AROUND : Right Analog Stick
+- LOOK AROUND : Right Analog Stick
 
 
 The game includes light text-based directions and no audio.  If you have issue
