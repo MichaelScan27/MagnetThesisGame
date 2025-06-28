@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dli37bc57l34u"]
+
+[ext_resource type="Texture2D" uid="uid://bmnyo8vwqf0vq" path="res://Textures/Materials/oak_planks.png" id="1_nt4to"]
+
+[resource]
+albedo_texture = ExtResource("1_nt4to")
+texture_filter = 0

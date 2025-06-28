@@ -1,0 +1,280 @@
+[gd_scene load_steps=24 format=3 uid="uid://cjtf0lucpnxpd"]
+
+[ext_resource type="Script" uid="uid://b2m0uibury3vj" path="res://Scripts/world.gd" id="1_mt512"]
+[ext_resource type="Material" uid="uid://in1rny1rij42" path="res://Materials/stone.tres" id="2_2kfpw"]
+[ext_resource type="Material" uid="uid://c06y8lwse2r4o" path="res://Materials/Positive.tres" id="3_odrq3"]
+[ext_resource type="Script" uid="uid://dfny5t63d5123" path="res://Scripts/level_change.gd" id="4_p7yjy"]
+[ext_resource type="PackedScene" uid="uid://b18tw8l4muxxf" path="res://Scenes/player.tscn" id="5_mi2fp"]
+[ext_resource type="Texture2D" uid="uid://cdrfitnqs7434" path="res://Textures/Materials/iron_block.png" id="5_odrq3"]
+[ext_resource type="Script" uid="uid://buqjs5cnopolv" path="res://Scripts/mag_interaction.gd" id="6_5cv5e"]
+[ext_resource type="Texture2D" uid="uid://dgjycsoo5yfok" path="res://Textures/Materials/redstone_block.png" id="6_mi2fp"]
+[ext_resource type="PackedScene" uid="uid://xnjuyocrc8c5" path="res://Scenes/mag_box.tscn" id="7_8d3la"]
+[ext_resource type="Texture2D" uid="uid://dc1o8mjew88p" path="res://Textures/Crosshairs/crosshair161.png" id="8_8f35d"]
+[ext_resource type="Script" uid="uid://bcysr7537fpap" path="res://Scripts/button_detection.gd" id="9_2kfpw"]
+[ext_resource type="Script" uid="uid://bjv6hctd34rie" path="res://Scripts/text_detection.gd" id="12_5cv5e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kkky6"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_4use6"]
+sky_material = SubResource("ProceduralSkyMaterial_kkky6")
+
+[sub_resource type="Environment" id="Environment_nmtvg"]
+background_mode = 2
+sky = SubResource("Sky_4use6")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhoiy"]
+albedo_color = Color(0.87451, 0, 0.0980392, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jfn1"]
+albedo_color = Color(0.0784314, 1, 0.0784314, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g10pr"]
+albedo_color = Color(0.0901961, 0.0666667, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7yjy"]
+albedo_texture = ExtResource("5_odrq3")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d3la"]
+albedo_texture = ExtResource("6_mi2fp")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mt512"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8f35d"]
+size = Vector3(8.89499, 3.55603, 5.0766)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uayhh"]
+size = Vector3(8.21454, 5.63458, 13.3323)
+
+[node name="world4" type="Node3D"]
+script = ExtResource("1_mt512")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nmtvg")
+
+[node name="MapEnvironment" type="Node3D" parent="."]
+
+[node name="room" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(2.89627, 0, 0, 0, 1.00306, 0, 0, 0, 12.3377, 0, 3.39111, -2.00307)
+material_override = ExtResource("2_2kfpw")
+use_collision = true
+flip_faces = true
+size = Vector3(1, 6.78223, 0.871094)
+
+[node name="room3" type="CSGBox3D" parent="MapEnvironment/room"]
+transform = Transform3D(2.89, 0, 0, 0, 0.082, 0, 0, 0, 12.33, 0.0231015, 3.6173, 0.0544355)
+material_override = ExtResource("2_2kfpw")
+use_collision = true
+flip_faces = true
+size = Vector3(0.191422, 7.43885, 0.0105291)
+
+[node name="room5" type="CSGBox3D" parent="MapEnvironment/room"]
+transform = Transform3D(2.89, 0, 0, 0, 0.082, 0, 0, 0, 12.33, 3.91769, -1.68531, 0.0327068)
+material_override = ExtResource("2_2kfpw")
+use_collision = true
+flip_faces = true
+size = Vector3(0.288582, 27.598, 0.0140536)
+
+[node name="room" type="CSGBox3D" parent="MapEnvironment/room"]
+transform = Transform3D(2.89627, 0, 0, 0, 1.00306, 0, 0, 0, 12.3377, 0, 0, 0.0658678)
+material_override = ExtResource("2_2kfpw")
+use_collision = true
+flip_faces = true
+size = Vector3(1, 6.782, 0.0343179)
+
+[node name="room2" type="CSGBox3D" parent="MapEnvironment/room"]
+transform = Transform3D(2.89627, 0, 0, 0, 1.00306, 0, 0, 0, 12.3377, 2.07208, 0.261722, -0.348663)
+material_override = ExtResource("2_2kfpw")
+use_collision = true
+flip_faces = true
+size = Vector3(1.09407, 6.17744, 0.0139331)
+
+[node name="room4" type="CSGBox3D" parent="MapEnvironment/room"]
+transform = Transform3D(2.89627, 0, 0, 0, 1.00306, 0, 0, 0, 12.3377, 3.92271, 0.264481, -0.514418)
+material_override = ExtResource("2_2kfpw")
+use_collision = true
+flip_faces = true
+size = Vector3(0.354715, 6.17744, 0.0973674)
+
+[node name="redbox" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51758, 0.624649, 8.55543)
+material_override = SubResource("StandardMaterial3D_rhoiy")
+use_collision = true
+size = Vector3(1, 1.34375, 1)
+
+[node name="greenbox" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.361124, 8.55543)
+material_override = SubResource("StandardMaterial3D_5jfn1")
+use_collision = true
+
+[node name="bluebox" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(0.997569, 0, 0, 0, 0.997569, 0, 0, 0, 0.997569, -1.46368, 0, 8.55543)
+material_override = SubResource("StandardMaterial3D_g10pr")
+use_collision = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.0505755, 0.99872, 0, -0.99872, 0.0505755, 0, 9.77506, -1.67007)
+light_color = Color(0.979243, 0.8823, 0.645518, 1)
+spot_range = 12.1692
+spot_attenuation = -0.85
+spot_angle = 27.2916
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.0505755, 0.99872, 0, -0.99872, 0.0505755, 11.2053, 8.96553, -7.99145)
+light_color = Color(0.979243, 0.8823, 0.645518, 1)
+spot_range = 12.1692
+spot_attenuation = -0.85
+spot_angle = 27.2916
+
+[node name="LevelChange" type="CSGBox3D" parent="MapEnvironment" groups=["level_change"]]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 11.2527, 2.57123, -15.7501)
+material_override = ExtResource("3_odrq3")
+use_collision = true
+script = ExtResource("4_p7yjy")
+
+[node name="LevelChangeDebug" type="CSGBox3D" parent="MapEnvironment" groups=["level_change"]]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.97788, 0.152284, 2.13743)
+material_override = ExtResource("3_odrq3")
+use_collision = true
+script = ExtResource("4_p7yjy")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 2.45867, 0, 0, 0, 1, -0.175856, 1.76926, -4.09142)
+material_override = SubResource("StandardMaterial3D_p7yjy")
+use_collision = true
+size = Vector3(3.95693, 1.16309, 0.921027)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 2.45867, 0, 0, 0, 1, 11.3075, 3.37458, -12.8337)
+material_override = SubResource("StandardMaterial3D_p7yjy")
+use_collision = true
+size = Vector3(3.95693, 1.16309, 0.921027)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 2.45867, 0, 0, 0, 1, 11.3586, 1.51204, -0.077828)
+material_override = SubResource("StandardMaterial3D_8d3la")
+use_collision = true
+size = Vector3(1.39208, 0.54883, 0.921027)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 2.45867, 0, 0, 0, 1, 0.0570289, 7.98775, -1.45381)
+material_override = SubResource("StandardMaterial3D_8d3la")
+use_collision = true
+size = Vector3(1.36889, 0.54883, 1.26828)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 2.45867, 0, 0, 0, 1, 11.4419, 0.568533, -13.7015)
+material_override = ExtResource("2_2kfpw")
+use_collision = true
+size = Vector3(3.27695, 1.16309, 5.96918)
+
+[node name="Player" parent="." instance=ExtResource("5_mi2fp")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 2.42953)
+
+[node name="Mag Boxes" type="Node" parent="."]
+script = ExtResource("6_5cv5e")
+
+[node name="NEG" parent="Mag Boxes" instance=ExtResource("7_8d3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0671837, 0.601645, -1.4629)
+mobile = false
+range = 20.0
+
+[node name="NEG2" parent="Mag Boxes" instance=ExtResource("7_8d3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2454, 1.10399, -10.1803)
+mobile = false
+range = 20.0
+
+[node name="POS" parent="Mag Boxes" instance=ExtResource("7_8d3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0495645, 1.76977, -1.461)
+gravity_scale = 0.01
+
+[node name="POS2" parent="Mag Boxes" instance=ExtResource("7_8d3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2233, 0.824983, -6.04389)
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Crosshair" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 144.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_8f35d")
+
+[node name="build text" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 730.0
+offset_bottom = 52.0
+text = "build 050225 - Magnet-based Puzzle-platform Video Game  - Michael Scandiffio Adelphi 2025
+world4"
+fit_content = true
+autowrap_mode = 2
+
+[node name="tutorial text" type="RichTextLabel" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 186.0
+offset_right = 731.0
+offset_bottom = 232.0
+theme_override_font_sizes/normal_font_size = 30
+text = "I am tutorial text
+"
+fit_content = true
+autowrap_mode = 2
+
+[node name="ButtonDetection" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.14387, 0)
+script = ExtResource("9_2kfpw")
+
+[node name="ButtonCollision" type="CollisionShape3D" parent="ButtonDetection"]
+transform = Transform3D(1, -2.23517e-08, -1.33226e-15, 2.23517e-08, 1, 5.96046e-08, 1.05879e-22, -5.96046e-08, 1, 0, 0, -1.33211)
+shape = SubResource("BoxShape3D_mt512")
+
+[node name="ButtonDetection2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3585, 0.384892, 0)
+script = ExtResource("9_2kfpw")
+button = 1
+
+[node name="ButtonCollision" type="CollisionShape3D" parent="ButtonDetection2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.19461, -0.870841)
+shape = SubResource("BoxShape3D_mt512")
+
+[node name="TextDetects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54819, 0.702674, 14.6962)
+
+[node name="TextDetection1" type="Area3D" parent="TextDetects" groups=["text"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3957)
+script = ExtResource("12_5cv5e")
+text_num = 7
+
+[node name="TextCollision" type="CollisionShape3D" parent="TextDetects/TextDetection1"]
+transform = Transform3D(1, -2.23517e-08, -1.33226e-15, 2.23517e-08, 1, 5.96046e-08, 1.05879e-22, -5.96046e-08, 1, 2.63855, 1.01239, -16.1752)
+shape = SubResource("BoxShape3D_8f35d")
+
+[node name="TextDetection2" type="Area3D" parent="TextDetects" groups=["text"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.68672)
+script = ExtResource("12_5cv5e")
+text_num = 8
+
+[node name="TextCollision" type="CollisionShape3D" parent="TextDetects/TextDetection2"]
+transform = Transform3D(1, -2.23517e-08, -1.33226e-15, 2.23517e-08, 1, 5.96046e-08, 1.05879e-22, -5.96046e-08, 1, 11.4941, 2.03621, -16.3234)
+shape = SubResource("BoxShape3D_uayhh")

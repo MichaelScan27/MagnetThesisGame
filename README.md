@@ -34,7 +34,6 @@ GateKeeper.
 3. Launch MichaelScandiffio-MagnetThesisGame.APP again
 
 
-
 When the game is running, you can use either a keyboard and mouse to play, or a 
 controller connected to the computer.  The controls are listed below:
 
@@ -59,7 +58,6 @@ CONTROLLER:
 - FIRE NORTH POLARITY : Nintendo ZL  //  Xbox LT  //  PlayStation L2
 - FIRE SOUTH POLARITY : Nintendo ZR  //  Xbox RT  //  PlayStation R2
 - LOOK AROUND : Right Analog Stick
-
 
 The game includes light text-based directions and no audio.  If you have issue
 opening or running the game, please email me at michaelscandiffio@mail.adelphi.edu.

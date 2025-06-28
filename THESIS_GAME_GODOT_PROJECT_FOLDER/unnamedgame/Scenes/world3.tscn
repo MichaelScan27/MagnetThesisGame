@@ -1,0 +1,178 @@
+[gd_scene load_steps=17 format=3 uid="uid://bqy75dswe4ryj"]
+
+[ext_resource type="Script" uid="uid://b2m0uibury3vj" path="res://Scripts/world.gd" id="1_stkue"]
+[ext_resource type="Material" uid="uid://in1rny1rij42" path="res://Materials/stone.tres" id="2_5u7fu"]
+[ext_resource type="Material" uid="uid://c06y8lwse2r4o" path="res://Materials/Positive.tres" id="3_u3354"]
+[ext_resource type="Script" uid="uid://dfny5t63d5123" path="res://Scripts/level_change.gd" id="4_4wpgs"]
+[ext_resource type="PackedScene" uid="uid://b18tw8l4muxxf" path="res://Scenes/player.tscn" id="5_mgjgw"]
+[ext_resource type="Script" uid="uid://buqjs5cnopolv" path="res://Scripts/mag_interaction.gd" id="6_t15cm"]
+[ext_resource type="PackedScene" uid="uid://xnjuyocrc8c5" path="res://Scenes/mag_box.tscn" id="7_htwnh"]
+[ext_resource type="Texture2D" uid="uid://dc1o8mjew88p" path="res://Textures/Crosshairs/crosshair161.png" id="8_k182f"]
+[ext_resource type="Script" uid="uid://bjv6hctd34rie" path="res://Scripts/text_detection.gd" id="9_5u7fu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kkky6"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_4use6"]
+sky_material = SubResource("ProceduralSkyMaterial_kkky6")
+
+[sub_resource type="Environment" id="Environment_nmtvg"]
+background_mode = 2
+sky = SubResource("Sky_4use6")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhoiy"]
+albedo_color = Color(0.87451, 0, 0.0980392, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jfn1"]
+albedo_color = Color(0.0784314, 1, 0.0784314, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g10pr"]
+albedo_color = Color(0.0901961, 0.0666667, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u3354"]
+size = Vector3(8.41188, 3.55603, 6.00608)
+
+[node name="world3" type="Node3D"]
+script = ExtResource("1_stkue")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nmtvg")
+
+[node name="MapEnvironment" type="Node3D" parent="."]
+
+[node name="room" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(2.89627, 0, 0, 0, 1.00306, 0, 0, 0, 12.3377, 0, 3.39111, -2.00307)
+material_override = ExtResource("2_5u7fu")
+use_collision = true
+flip_faces = true
+size = Vector3(1, 6.78223, 0.871094)
+
+[node name="room" type="CSGBox3D" parent="MapEnvironment/room"]
+transform = Transform3D(2.89627, 0, 0, 0, 1.00306, 0, 0, 0, 12.3377, 0, 0, 0.0658678)
+material_override = ExtResource("2_5u7fu")
+use_collision = true
+flip_faces = true
+size = Vector3(1, 6.782, 0.0343179)
+
+[node name="room2" type="CSGBox3D" parent="MapEnvironment/room"]
+transform = Transform3D(2.89627, 0, 0, 0, 1.00306, 0, 0, 0, 12.3377, 0.967926, 0.261722, -0.348663)
+material_override = ExtResource("2_5u7fu")
+use_collision = true
+flip_faces = true
+size = Vector3(0.331604, 6.17744, 0.0139331)
+
+[node name="redbox" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51758, 0.624649, 8.55543)
+material_override = SubResource("StandardMaterial3D_rhoiy")
+use_collision = true
+size = Vector3(1, 1.34375, 1)
+
+[node name="greenbox" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.361124, 8.55543)
+material_override = SubResource("StandardMaterial3D_5jfn1")
+use_collision = true
+
+[node name="bluebox" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(0.997569, 0, 0, 0, 0.997569, 0, 0, 0, 0.997569, -1.46368, 0, 8.55543)
+material_override = SubResource("StandardMaterial3D_g10pr")
+use_collision = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.0505755, 0.99872, 0, -0.99872, 0.0505755, 0, 9.77506, -1.67007)
+light_color = Color(0.979243, 0.8823, 0.645518, 1)
+spot_range = 12.1692
+spot_attenuation = -0.85
+spot_angle = 27.2916
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="MapEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 2.45867, 0, 0, 0, 1, 0.053398, 0.195645, -4.78104)
+material_override = ExtResource("2_5u7fu")
+use_collision = true
+size = Vector3(8.52472, 1.16309, 5.52345)
+
+[node name="LevelChange" type="CSGBox3D" parent="MapEnvironment" groups=["level_change"]]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 4.21577, 2.22163, -6.35781)
+material_override = ExtResource("3_u3354")
+use_collision = true
+script = ExtResource("4_4wpgs")
+level = 4
+
+[node name="LevelChangeDebug" type="CSGBox3D" parent="MapEnvironment" groups=["level_change"]]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.80512, 0.152284, 2.13743)
+material_override = ExtResource("3_u3354")
+use_collision = true
+script = ExtResource("4_4wpgs")
+
+[node name="Player" parent="." instance=ExtResource("5_mgjgw")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 2.42953)
+
+[node name="Mag Boxes" type="Node" parent="."]
+script = ExtResource("6_t15cm")
+
+[node name="NEG" parent="Mag Boxes" instance=ExtResource("7_htwnh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28035, 0.802103, -1.4629)
+mobile = false
+range = 20.0
+
+[node name="POS" parent="Mag Boxes" instance=ExtResource("7_htwnh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0781946, 0.289214, -1.63236)
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Crosshair" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 144.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_k182f")
+
+[node name="build text" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 730.0
+offset_bottom = 52.0
+theme_override_font_sizes/normal_font_size = 0
+text = "build 050225 - Magnet-based Puzzle-platform Video Game  - Michael Scandiffio Adelphi 2025
+world3"
+fit_content = true
+autowrap_mode = 2
+
+[node name="tutorial text" type="RichTextLabel" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 186.0
+offset_right = 731.0
+offset_bottom = 232.0
+theme_override_font_sizes/normal_font_size = 30
+text = "I am tutorial text
+"
+fit_content = true
+autowrap_mode = 2
+
+[node name="TextDetects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54819, 0.702674, 14.6962)
+
+[node name="TextDetection1" type="Area3D" parent="TextDetects" groups=["text"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3957)
+script = ExtResource("9_5u7fu")
+text_num = 6
+
+[node name="TextCollision" type="CollisionShape3D" parent="TextDetects/TextDetection1"]
+transform = Transform3D(1, -2.23517e-08, -1.33226e-15, 2.23517e-08, 1, 5.96046e-08, 1.05879e-22, -5.96046e-08, 1, 2.57878, 0.82653, -13.9473)
+shape = SubResource("BoxShape3D_u3354")
