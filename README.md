@@ -1,5 +1,3 @@
-PLEASE READ THE ENTIRE FILE
-
 Hi, I'm Michael Scandiffio and this is my Magnet-based Puzzle-platform Video Game 
 that I created as part of my Honors Thesis project.  If you are reading this, then
 that means I've sent you a copy of the demo I created to give feedback on or you are
@@ -7,6 +5,11 @@ viewing the final result of the project.
 
 I would like to thank you very much for taking time out of your day to view
 my project, it means so much and your feedback and attention is immensely appreciated.  
+
+The game is a first-person-perspective puzzle-platformer heavily inspired by the 2007
+video-game Portal.  In this demo, you have a device that can modify the polarities of
+magnetic cubes.  You interact with these cubes using this device to solve puzzles and
+get to the end of each room.
 
 The contents of the repository include:
 - A Windows-compatible .EXE inside of a .ZIP
