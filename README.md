@@ -9,21 +9,20 @@ I would like to thank you very much for taking time out of your day to view
 my project, it means so much and your feedback and attention is immensely appreciated.  
 
 The contents of the repository include:
-- A Windows-compatible .EXE inside of 'WINDOWS'
-- A MacOS-compatible .APP inside of the .ZIP inside 'MAC_OS'
+- A Windows-compatible .EXE inside of a .ZIP
+- A MacOS-compatible .APP inside of a .ZIP
 - The original Godot project folder I create the game in, that can be opened in the
-	Godot Engine application if desired.
+	Godot Engine application if desired.  Can also be used to compile the project.
 - This README
 - The full companion paper to this project as a .PDF document.
 
 
 
-If you are running a version of Windows on your computer, you can run the game from:
-	/WINDOWS/MichaelScandiffio-MagnetThesisGame.EXE
+If you are running a version of Windows on your computer, you can run the game from the
+.EXE inside the WINDOWS.ZIP
 
-If you are running a version of MacOS, unzip the .ZIP inside 'MAC_OS', then run you
-can run the game from:
-	/MAC_OS/MichaelScandiffio-MagnetThesisGame.APP
+If you are running a version of MacOS, unzip the .ZIP inside 'MAC_OS', then you can run
+the game from the .APP inside MAC_OS.ZIP
 
 On MacOS, if the application fails to run, you may need to allow it through
 GateKeeper.
